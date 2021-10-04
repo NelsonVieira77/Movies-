@@ -1,7 +1,5 @@
-
 <header>
     <h1 href="#">Movies</h1>
-
     <nav>
         <li><a href="#avengers">Avengers: Infinity War</a></li>
         <li><a href="#spider-man">Spider-Man: Far From Home</a></li>
@@ -11,56 +9,55 @@
 
 
 
-<section class="container">
+<section *ngFor="let movies of listaMovies" class="container">
 
+<section class="container">
 
     <div id="avengers" class="child">
-        <h1>{{ movies.movie_1 }}</h1>
-        <h3>{{ movies.ano_movie1 }}</h3>
-        <h3>{{ movies.diretor_movie1 }}</h3>
-        <h3>{{ movies.genero_movie1 }}</h3>
-        <h3>{{ movies.descricao_movie1}}</h3>
+        <h1>{{ movies.nome }}</h1>
+        <h3>{{  movies.ano }}</h3>
+        <h3>{{ movies.diretor }}</h3>
+        <h3>{{ movies.genero }}</h3>
+        <h3>{{ movies.descricao }}</h3>
 
 
     </div>
-    <div class="child"><img
-            src="https://upload.wikimedia.org/wikipedia/pt/thumb/9/90/Avengers_Infinity_War.jpg/250px-Avengers_Infinity_War.jpg">
-    </div>
-</section>
-
-<!--<hr>-->
-
-<section class="container">
-
-
-    <div id="spider-man" class="child">
-        <h1>{{ movies.movie_2 }}</h1>
-        <h3>{{ movies.ano_movie2 }}</h3>
-        <h3>{{ movies.diretor_movie2 }}</h3>
-        <h3>{{ movies.genero_movie2 }}</h3>
-        <h3>{{ movies.descricao_movie2}}</h3>
-
-
-    </div>
-    <div class="child"><img
-            src="https://vignette.wikia.nocookie.net/marvelcinematicuniverse/images/3/35/Official_FFH_US_Poster.jpg/revision/latest?cb=20190522171521">
+    <div class="child">
+        <img alt="poster do filme"[src]="movies.poster + '.jpg'">
     </div>
 </section>
 
-<!--<hr>-->
 
-<section class="container">
-
-
-    <div id="thor" class="child">
-        <h1>{{ movies.movie_3 }}</h1>
-        <h3>{{ movies.ano_movie3 }}</h3>
-        <h3>{{ movies.diretor_movie3 }}</h3>
-        <h3>{{ movies.genero_movie3 }}</h3>
-        <h3>{{ movies.descricao_movie3 }}</h3>
-
-
-    </div>
-    <div class="child"><img
-            src="https://m.media-amazon.com/images/M/MV5BMjMyNDkzMzI1OF5BMl5BanBnXkFtZTgwODcxODg5MjI@._V1_.jpg"></div>
 </section>
+
+<footer>
+    <p>Todos os direitos reservados</p>
+</footer>
+
+<!--<div class="row">
+    <div class="table-responsive col-lg-12">
+        <table class="table table-bordered text-center">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>movie</th>
+                    <th>ano</th>
+                    <th>diretor</th>
+                    <th>genero</th>
+                    <th>descricao</th>
+                    <th>UF</th>
+                    <th>Telefone</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let movies of listaMovies">
+                    <td>
+                        <input type="radio" name="selecionado" />
+                    </td>
+                    <td>{{ movies.nome }}</td>
+                    <td>{{ movies.ano }}</td>
+                    <td>{{ movies.diretor }</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>-->

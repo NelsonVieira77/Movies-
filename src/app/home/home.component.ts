@@ -1,3 +1,4 @@
+import { HomeService } from './service/home.service';
 import { Component, OnInit } from '@angular/core';
 import { Movies } from './movies';
 
@@ -8,14 +9,25 @@ import { Movies } from './movies';
 })
 export class HomeComponent implements OnInit {
 
+  listaMovies: Movies[];
   movies: Movies;
 
-  constructor() { }
+  constructor(
+    private homeService: HomeService,
+  ) { }
 
   ngOnInit(): void {
     this.movies = new Movies();
+    this.consultar();
   }
 
+  consultar() {
+    this.homeService.consultar().subscribe(
+      (retorno: Movies[]) => {
+        this.listaMovies= retorno;
+      }
+    );
+  }  
 
 
 }
